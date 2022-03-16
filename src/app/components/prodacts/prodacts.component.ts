@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProductsService} from "../../_services/products.service";
 import {Product} from "../../_model/product.modal";
 import {catchError, finalize, map, Observable, of, startWith} from "rxjs";
-import {appDataState, DataStateEnum} from "../../States/product.state";
+import {ActionEventProduct, appDataState, DataStateEnum, ProductActionType} from "../../States/product.state";
 import {NgxSpinnerService} from "ngx-spinner";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 
@@ -18,12 +18,33 @@ export class ProdactsComponent implements OnInit {
 
   constructor(private productService: ProductsService,
               private spinner: NgxSpinnerService,
-              private rout:Router)
-  {
+              private rout: Router) {
 
   }
 
   ngOnInit(): void {
+  }
+
+  OnActionEvent($event: ActionEventProduct) {
+    switch ($event.ProductActionType) {
+      case  ProductActionType.GET_ALL_PRODUCT : {
+        this.onGetAll();
+        break;
+      }
+      case  ProductActionType.GET_SELECTED_PRODUCT: {
+        this.onGetSelected();
+        break;
+      }
+      case  ProductActionType.GET_AVALAIBLE_PRODUCT: {
+        this.onGetAvalaible();
+        break;
+      }
+      case  ProductActionType.SEARSH_PRODUCT: {
+        this.search($event.Payload);
+        break;
+      }
+    }
+
   }
 
 
@@ -90,8 +111,8 @@ export class ProdactsComponent implements OnInit {
     );
   }
 
-  search(value:string) {
-     // @ts-ignore
+  search(value: string) {
+    // @ts-ignore
     this.listProdact$ = this.productService.RechercheProduct(value).pipe(
       map(data => {
           this.spinner.hide()
@@ -110,13 +131,13 @@ export class ProdactsComponent implements OnInit {
     );
   }
 
-  onSelect(prodact:Product) {
-     this.productService.UpdateProduct(prodact).subscribe(value => {
-      })
+  onSelect(prodact: Product) {
+    this.productService.UpdateProduct(prodact).subscribe(value => {
+    })
   }
 
-  deleteProduit(id:number) {
-   let v=confirm("Etre vous Sur !!")
+  deleteProduit(id: number) {
+    let v = confirm("Etre vous Sur !!")
     if (v) {
 
       this.productService.DeleteProduct(id).subscribe(value => {
@@ -125,7 +146,8 @@ export class ProdactsComponent implements OnInit {
     }
   }
 
-  UpdateProduit(id:number) {
-    this.rout.navigateByUrl("update-products/"+id);
+  UpdateProduit(id: number) {
+    this.rout.navigateByUrl("update-products/" + id);
   }
+
 }

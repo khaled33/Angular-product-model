@@ -14,6 +14,8 @@ import {NgxSpinnerModule} from "ngx-spinner";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ProductAddComponent } from './components/prodacts/product-add/product-add.component';
 import { ProductUpdateComponent } from './components/prodacts/product-update/product-update.component';
+import { ProductNavBarComponent } from './components/prodacts/product-nav-bar/product-nav-bar.component';
+import { ProductListComponent } from './components/prodacts/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { ProductUpdateComponent } from './components/prodacts/product-update/pro
     HomeComponent,
     ProductAddComponent,
     ProductUpdateComponent,
+    ProductNavBarComponent,
+    ProductListComponent,
 
   ],
   imports: [

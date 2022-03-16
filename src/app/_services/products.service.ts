@@ -25,8 +25,7 @@ export class ProductsService {
   }
 
   RechercheProduct(input: string): Observable<Product[]> {
-    console.log(input);
-    return this.http.get<Product[]>(`${environment.baseUrl}/produits?name_like=` + input.toString());
+     return this.http.get<Product[]>(`${environment.baseUrl}/produits?name_like=` + input.toString());
   }
 
   UpdateProduct(product: Product): Observable<Product> {
