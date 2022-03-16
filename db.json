@@ -1,0 +1,28 @@
+{
+  "produits": [
+    {
+      "id": 1,
+      "name": "pc portable",
+      "price": 2500,
+      "quantity": 600,
+      "selected": true,
+      "available": true
+    },
+    {
+      "name": "s",
+      "price": 1,
+      "quantity": 10,
+      "selected": true,
+      "available": true,
+      "id": 2
+    },
+    {
+      "name": "s",
+      "price": 5,
+      "quantity": 5,
+      "selected": true,
+      "available": true,
+      "id": 3
+    }
+  ]
+}
