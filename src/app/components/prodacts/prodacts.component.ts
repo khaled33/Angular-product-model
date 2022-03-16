@@ -43,6 +43,18 @@ export class ProdactsComponent implements OnInit {
         this.search($event.Payload);
         break;
       }
+      case  ProductActionType.ON_SELECTE_PRODUCT: {
+        this.onSelect($event.Payload);
+        break;
+      }
+      case  ProductActionType.DELETE_PRODUCT: {
+        this.deleteProduit($event.Payload);
+        break;
+      }
+      case  ProductActionType.UPDATE_PRODUCT: {
+        this.UpdateProduit($event.Payload);
+        break;
+      }
     }
 
   }
