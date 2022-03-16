@@ -41,4 +41,9 @@ export class ProductsService {
   AddProduct(p: Product): Observable<void> {
     return this.http.post<void>(`${environment.baseUrl}/produits/`,p);
   }
+
+  GetProductById(id:number): Observable<Product>{
+    return this.http.get<Product>(`${environment.baseUrl}/produits/`+ id);
+
+  }
 }

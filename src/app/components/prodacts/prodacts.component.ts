@@ -4,6 +4,7 @@ import {Product} from "../../_model/product.modal";
 import {catchError, finalize, map, Observable, of, startWith} from "rxjs";
 import {appDataState, DataStateEnum} from "../../States/product.state";
 import {NgxSpinnerService} from "ngx-spinner";
+import {ActivatedRoute, Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-prodacts',
@@ -15,7 +16,10 @@ export class ProdactsComponent implements OnInit {
   listProdact$: Observable<appDataState<Product[]>> | null = null;
   readonly DataStateEnum = DataStateEnum;
 
-  constructor(private productService: ProductsService, private spinner: NgxSpinnerService) {
+  constructor(private productService: ProductsService,
+              private spinner: NgxSpinnerService,
+              private rout:Router)
+  {
 
   }
 
@@ -119,5 +123,9 @@ export class ProdactsComponent implements OnInit {
         this.onGetAll();
       })
     }
+  }
+
+  UpdateProduit(id:number) {
+    this.rout.navigateByUrl("update-products/"+id);
   }
 }

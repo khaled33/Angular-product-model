@@ -14,6 +14,7 @@
     <li class="nav-item">
       <a class="btn btn-outline-info  m-lg-2" routerLink="/add-products">Add Prudact</a>
     </li>
+
   </ul>
   <form #f="ngForm" (submit)="search(f.value.name)" class="navbar-nav ms-auto ">
     <input ngModel name="name" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -63,6 +64,10 @@
           </td>
           <td>
             <button (click)="deleteProduit(prodact.id)" class="btn btn-danger"><span class="fa fa-trash-o"></span></button>
+          </td>
+          <td>
+            <button (click)="UpdateProduit(prodact.id)" class="btn btn-danger"><span class="fa fa-edit"></span>
+            </button>
           </td>
         </tr>
         </tbody>

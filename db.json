@@ -1,12 +1,12 @@
 {
   "produits": [
     {
-      "id": 1,
       "name": "pc portable",
       "price": 2500,
       "quantity": 600,
-      "selected": true,
-      "available": true
+      "selected": false,
+      "available": false,
+      "id": 1
     },
     {
       "name": "s",

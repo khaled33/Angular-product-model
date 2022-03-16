@@ -13,6 +13,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ProductAddComponent } from './components/prodacts/product-add/product-add.component';
+import { ProductUpdateComponent } from './components/prodacts/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProductAddComponent } from './components/prodacts/product-add/product-a
     ProdactsComponent,
     HomeComponent,
     ProductAddComponent,
+    ProductUpdateComponent,
 
   ],
   imports: [
